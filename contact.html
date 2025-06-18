@@ -7,6 +7,8 @@
     <title>Victor Daniel</title>
 </head>
 <body>
+<input type="checkbox" id="darkmodeToggle" hidden>
+<label class="darkmodeLabel" for="darkmodeToggle"></label>
 <input type="checkbox" id="menu-toggle" hidden>
 <div class="pagina">
     <header class="header">
@@ -15,9 +17,10 @@
             <label for="menu-toggle" class="menu-icon"><span>☰</span></label>
                 <ul class="menu-list">
                     <li><a href="index.html">Início</a></li>
-                    <li><a href="skills.html">Habilidades</a></li>
                     <li><a href="projects.html">Projetos</a></li>
+                    <li><a href="about-me.html">Sobre mim</a></li>
                     <li><a href="contact.html">Contato</a></li>
+                    <li><a href="skills.html">Skills</a></li>
                 </ul>
         </nav>
     </header>
@@ -32,8 +35,8 @@
                     <a href="https://www.linkedin.com/in/victor-daniel-dos-santos-lima-856498342/"><img src="assets/linkedin.png"><h1>Linkedin</h1></a>
                 </div>
                 <br>
-                <details>
-                    <summary>Envie uma mensagem!</summary>
+                <details id="detalhe">
+                    <summary id="sumario">Envie uma mensagem!</summary>
                         <form id="contato-form"class="contato-form" action="https://formspree.io/f/xnnvzdog" method="POST" autocomplete="off">
                             <input type="text" name="nome" placeholder="Seu nome" required>
                             <input type="email" name="email" placeholder="Seu e-mail" required>
@@ -46,9 +49,18 @@
         </section>
 </div>
 <script>
+  const sumario = document.getElementById('sumario')
+  const detalhe = document.getElementById('detalhe')
   const form = document.getElementById('contato-form');
   const sucessoMsg = document.getElementById('sucesso-msg');
 
+detalhe.addEventListener('toggle', () => {
+  if (detalhe.open) {
+    sumario.textContent = 'Escreva sua Mensagem';
+} else { 
+    sumario.textContent = 'Envie uma mensagem!';
+}
+})
   form.addEventListener('submit', function(event) {
     event.preventDefault();
 
