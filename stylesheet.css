@@ -246,7 +246,6 @@ summary:hover {
         flex-direction: column;
         position: relative;
         margin-right: 0.4rem;
-        transition: 0.4s ease;
         margin-bottom: 2rem;
         
     }
@@ -254,7 +253,7 @@ summary:hover {
         width: 2rem;
     }
     nav {
-        margin-bottom: 8.5rem;
+        margin-bottom: 9.2dvh;
     }
     #menu-toggle:checked ~ .pagina .header nav .menu-list {
         display: flex;
@@ -290,7 +289,7 @@ summary:hover {
         margin: 0.4rem;
     }
     .header ul {
-        gap: 1.2rem;
+        gap: 1rem;
     }
     .icones-sociais-cont {
         margin: 0;
