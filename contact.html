@@ -34,7 +34,7 @@
                 <br>
                 <details>
                     <summary>Envie uma mensagem!</summary>
-                        <form class="contato-form" action="https://formspree.io/f/xnnvzdog" method="POST" autocomplete="off">
+                        <form id="contato-form"class="contato-form" action="https://formspree.io/f/xnnvzdog" method="POST" autocomplete="off">
                             <input type="text" name="nome" placeholder="Seu nome" required>
                             <input type="email" name="email" placeholder="Seu e-mail" required>
                             <textarea name="mensagem" rows="5" placeholder="Sua mensagem" required></textarea>
@@ -45,5 +45,40 @@
             </div>
         </section>
 </div>
+<script>
+  const form = document.getElementById('contato-form');
+  const sucessoMsg = document.getElementById('sucesso-msg');
+
+  form.addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const formData = new FormData(form);
+
+    fetch(form.action, {
+      method: form.method,
+      body: formData,
+      headers: {
+        'Accept': 'application/json'
+      }
+    }).then(response => {
+      if (response.ok) {
+        sucessoMsg.style.display = 'block'; 
+        form.reset(); 
+        setTimeout(() => {
+          sucessoMsg.style.display = 'none'; 
+        }, 5000);
+      } else {
+        sucessoMsg.textContent = "Erro ao enviar a mensagem. Tente novamente.";
+        sucessoMsg.style.color = 'red';
+        sucessoMsg.style.display = 'block';
+      }
+    }).catch(() => {
+      sucessoMsg.textContent = "Erro ao enviar a mensagem. Tente novamente.";
+      sucessoMsg.style.color = 'red';
+      sucessoMsg.style.display = 'block';
+    });
+  });
+</script>
+
 </body>
 </html>
