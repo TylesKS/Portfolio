@@ -10,10 +10,9 @@
 <input type="checkbox" id="menu-toggle" hidden>
 <div class="pagina">
     <header class="header">
-        <div class="home"><a href="home.html"><img src="assets/home-icon-silhouette.png" alt="icon-home"></a></div>
+        <div class="home"><a href="index.html"><img src="assets/home-icon-silhouette.png" alt="icon-home"></a></div>
         <nav>
             <label for="menu-toggle" class="menu-icon"><span>☰</span></label>
-            
                 <ul class="menu-list">
                     <li><a href="index.html">Início</a></li>
                     <li><a href="skills.html">Habilidades</a></li>
@@ -26,7 +25,6 @@
         <section>
             <div class="contact">
                 <h2>Vamos conversar?</h2>
-                
                 <h3>Tem alguma dúvida ou quer conversar? <br>Se tiver dúvidas, ideias ou quiser só bater um papo, é só mandar uma mensagem!</h3>
                 <div class="icones-sociais-cont">
                     <a href="https://github.com/TylesK7"><img src="assets/github.png"><h1>Github</h1></a>
@@ -36,22 +34,16 @@
                 <br>
                 <details>
                     <summary>Envie uma mensagem!</summary>
-                    
-<form class="contato-form" onsubmit="enviarMensagem(event)">
-  <input type="text" name="nome" placeholder="Seu nome" required>
-  <input type="email" name="email" placeholder="Seu e-mail" required>
-  <textarea name="mensagem" rows="5" placeholder="Sua mensagem" required></textarea>
-
-  <button type="submit">Enviar</button>
-  <p class="form-sucesso" id="sucesso-msg">Mensagem enviada com sucesso! ✅</p>
-</form>
-
-</details>
+                        <form class="contato-form" action="https://formspree.io/f/xnnvzdog" method="POST">
+                            <input type="text" name="nome" placeholder="Seu nome" required>
+                            <input type="email" name="email" placeholder="Seu e-mail" required>
+                            <textarea name="mensagem" rows="5" placeholder="Sua mensagem" required></textarea>
+                            <button type="submit">Enviar</button>
+                            <p class="form-sucesso" id="sucesso-msg">Mensagem enviada com sucesso! ✅</p>
+                        </form>
+                </details>
             </div>
-        
         </section>
-
 </div>
-
 </body>
 </html>
