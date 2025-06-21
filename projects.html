@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <link rel="stylesheet" href="stylesheet.css">
     <meta charset="UTF-8">
@@ -26,7 +26,43 @@
                 </ul>
         </nav>
     </header>
-
+    <div class="projetos-grid">
+        <div class="projeto-card">
+            <img src="assets/Screenshot 2025-06-19 124559.png" alt="Prévia do site">
+            <h2>CultivaTech</h2>
+            <p>Um site feito usando apenas HTML e CSS para o Agrinho – Do Campo à Cidade</p>
+            <a href="https://tylesk7.github.io/Agrinho_do_Campo_a_Cidade/" target="_blank">Ver site</a>
+        </div>
+        
+    </div>
 </div>
+<script>
+const darkToggle = document.getElementById('darkmodeToggle');
+const darkLabel = document.querySelector('.darkmodeLabel');
+const body = document.body;
+
+function enableThemeTransition() {
+    body.classList.add('transition-theme');
+    if (darkLabel) darkLabel.classList.add('animar-darkmode');
+    setTimeout(() => {
+        body.classList.remove('transition-theme');
+        if (darkLabel) darkLabel.classList.remove('animar-darkmode');
+    }, 600);
+}
+
+if (darkToggle) {
+    if (localStorage.getItem('darkmode') === 'on') {
+        darkToggle.checked = true;
+    }
+    darkToggle.addEventListener('change', function() {
+        enableThemeTransition();
+        if (darkToggle.checked) {
+            localStorage.setItem('darkmode', 'on');
+        } else {
+            localStorage.setItem('darkmode', 'off');
+        }
+    });
+}
+</script>
 </body>
 </html>
