@@ -1,17 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <link rel="stylesheet" href="stylesheet.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Victor Daniel</title>
 </head>
+
 <body>
-<input type="checkbox" id="darkmodeToggle" hidden>
+<input type="checkbox" id="darkmodeToggle" hidden> 
 <label class="darkmodeLabel" for="darkmodeToggle"></label>
 <input type="checkbox" id="menu-toggle" hidden>
+
 <div class="pagina">
     <header class="header">
+        
         <div class="home"><a href="index.html"><img src="assets/home-icon-silhouette.png" alt="icon-home"></a></div>
         <nav>
             <label for="menu-toggle" class="menu-icon"><span>☰</span></label>
@@ -26,7 +29,67 @@
                 </ul>
         </nav>
     </header>
-
+    <section class="skills-section">
+    <h1>Minhas Habilidades</h1>
+    <div class="skills-grid">
+        <div class="skill-card">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML">
+            <span>HTML</span>
+        </div>
+        <div class="skill-card">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS">
+            <span>CSS</span>
+        </div>
+        <div class="skill-card">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript">
+            <span>JavaScript</span>
+        </div>
+        <div class="skill-card">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python">
+            <span>Python</span>
+        </div>
+        <div class="skill-card">
+            <img src="https://cdn-icons-png.flaticon.com/512/732/732221.png" alt="Pacote Office">
+            <span>Pacote Office</span>
+        </div>
+        <div class="skill-card">
+            <img src="https://cdn-icons-png.flaticon.com/512/3524/3524659.png" alt="Facilidade com Tecnologia">
+            <span>Facilidade com Tecnologia</span>
+        </div>
+        <div class="skill-card">
+            <img src="https://cdn-icons-png.flaticon.com/512/330/330425.png" alt="Inglês">
+            <span>Inglês Intermediário/Avançado</span>
+        </div>
+    </div>
+</section>
 </div>
+<script>
+const darkToggle = document.getElementById('darkmodeToggle');
+const darkLabel = document.querySelector('.darkmodeLabel');
+const body = document.body;
+
+function enableThemeTransition() {
+    body.classList.add('transition-theme');
+    if (darkLabel) darkLabel.classList.add('animar-darkmode');
+    setTimeout(() => {
+        body.classList.remove('transition-theme');
+        if (darkLabel) darkLabel.classList.remove('animar-darkmode');
+    }, 600);
+}
+
+if (darkToggle) {
+    if (localStorage.getItem('darkmode') === 'on') {
+        darkToggle.checked = true;
+    }
+    darkToggle.addEventListener('change', function() {
+        enableThemeTransition();
+        if (darkToggle.checked) {
+            localStorage.setItem('darkmode', 'on');
+        } else {
+            localStorage.setItem('darkmode', 'off');
+        }
+    });
+}
+</script>
 </body>
 </html>
