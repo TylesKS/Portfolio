@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <link rel="stylesheet" href="stylesheet.css">
     <meta charset="UTF-8">
@@ -43,5 +43,33 @@
 
     </div>
 </div>
+<script>
+const darkToggle = document.getElementById('darkmodeToggle');
+const darkLabel = document.querySelector('.darkmodeLabel');
+const body = document.body;
+
+function enableThemeTransition() {
+    body.classList.add('transition-theme');
+    if (darkLabel) darkLabel.classList.add('animar-darkmode');
+    setTimeout(() => {
+        body.classList.remove('transition-theme');
+        if (darkLabel) darkLabel.classList.remove('animar-darkmode');
+    }, 600);
+}
+
+if (darkToggle) {
+    if (localStorage.getItem('darkmode') === 'on') {
+        darkToggle.checked = true;
+    }
+    darkToggle.addEventListener('change', function() {
+        enableThemeTransition();
+        if (darkToggle.checked) {
+            localStorage.setItem('darkmode', 'on');
+        } else {
+            localStorage.setItem('darkmode', 'off');
+        }
+    });
+}
+</script>
 </body>
 </html>
