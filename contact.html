@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <link rel="stylesheet" href="stylesheet.css">
     <meta charset="UTF-8">
@@ -30,9 +30,9 @@
                 <h2>Vamos conversar?</h2>
                 <h3>Tem alguma dúvida ou quer conversar? <br>Se tiver dúvidas, ideias ou quiser só bater um papo, é só mandar uma mensagem!</h3>
                 <div class="icones-sociais-cont">
-                    <a href="https://github.com/TylesK7"><img src="assets/github.png"><h1>Github</h1></a>
-                    <a href="https://api.whatsapp.com/send?phone=5544999235323"><img src="assets/whatsapp(1).png"><h1>WhatsApp</h1></a>
-                    <a href="https://www.linkedin.com/in/victor-daniel-dos-santos-lima-856498342/"><img src="assets/linkedin.png"><h1>Linkedin</h1></a>
+                    <a href="https://github.com/TylesK7" target="_blank"><img src="assets/github.png"><h1>Github</h1></a>
+                    <a href="https://api.whatsapp.com/send?phone=5544999235323" target="_blank"><img src="assets/whatsapp(1).png"><h1>WhatsApp</h1></a>
+                    <a href="https://www.linkedin.com/in/victor-daniel-dos-santos-lima-856498342/" target="_blank"><img src="assets/linkedin.png"><h1>Linkedin</h1></a>
                 </div>
                 <br>
                 <details id="detalhe">
@@ -53,7 +53,32 @@
   const detalhe = document.getElementById('detalhe')
   const form = document.getElementById('contato-form');
   const sucessoMsg = document.getElementById('sucesso-msg');
+  const darkToggle = document.getElementById('darkmodeToggle');
+  const darkLabel = document.querySelector('.darkmodeLabel');
+  const body = document.body;
 
+function enableThemeTransition() {
+    body.classList.add('transition-theme');
+    if (darkLabel) darkLabel.classList.add('animar-darkmode');
+    setTimeout(() => {
+        body.classList.remove('transition-theme');
+        if (darkLabel) darkLabel.classList.remove('animar-darkmode');
+    }, 600);
+}
+
+if (darkToggle) {
+    if (localStorage.getItem('darkmode') === 'on') {
+        darkToggle.checked = true;
+    }
+    darkToggle.addEventListener('change', function() {
+        enableThemeTransition();
+        if (darkToggle.checked) {
+            localStorage.setItem('darkmode', 'on');
+        } else {
+            localStorage.setItem('darkmode', 'off');
+        }
+    });
+}
 detalhe.addEventListener('toggle', () => {
   if (detalhe.open) {
     sumario.textContent = 'Escreva sua Mensagem';
