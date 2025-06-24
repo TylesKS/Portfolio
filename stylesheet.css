@@ -7,11 +7,13 @@ html, body, .pagina {
 html::-webkit-scrollbar{
     display: none;
 }
+.pagina {
+    background-color: var(--background-color3);
+}
 .transition-theme .pagina, .transition-theme body {
     transition: background-color 0.1, color 0.1s;
 }
 :root {
-    
     --text-color1: rgb(82, 82, 255);
     --text-color2: rgb(31, 31, 255);
     --text-color3: #0e0e0e;
@@ -82,7 +84,6 @@ html::-webkit-scrollbar{
     --shadow: rgb(16, 16, 16);
 }
 body {
-    height: 100%;
     background-color: var(--background-color3);
     margin: 0;
     padding: 0;
@@ -90,7 +91,8 @@ body {
 }
 
 header {
-    padding: 1rem;   
+    padding: 1rem;
+        
 }
 .header ul {
     background-color: var(--background-color3);
@@ -504,18 +506,43 @@ summary:hover {
     margin-top: 15px;
     display: none;
 }
-@media (min-width: 1440px) {
+@media (max-width: 1920px) {
     .about-text {
         width: 60%;
         gap: 1rem;
     }
-
+    .back img{
+        top: 10rem;
+    }
+    .introduction {
+        margin: 10rem auto 0 auto;
+        font-size: 1.2rem;
+        line-height: 2.5rem;
+    }
     .about p, .about a{
         font-size: 1.2rem;
         line-height: 2rem;
     }
 
 }
+@media (max-width: 1600px) {
+    .introduction {
+        margin: 10rem auto 0 auto;
+    }
+    .back img{
+        top: 10rem;
+    }
+}
+@media (max-width: 1440px) {
+    .introduction {
+        margin: 5rem auto 0 auto;
+    }
+    .back img{
+        top: 10rem;
+    }
+}
+
+
 @media (max-width: 768px) {
     .menu-icon {
         width: 2rem;
