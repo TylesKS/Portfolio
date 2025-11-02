@@ -1,3 +1,9 @@
+* {
+    margin: 0;
+    padding: 0;
+
+}
+
 html, body, .pagina {
     min-height: 100vh;
     overflow: scroll;
@@ -181,7 +187,7 @@ header {
     display: flex;
     height: 50%;
     word-break: break-word;
-    gap: 1.5rem;
+    gap: 1.2rem;
     width: 100%;
 }
 
@@ -214,17 +220,18 @@ header {
 .projetos-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 2rem;
+    gap: 3rem;
     margin: 2rem auto;
     max-width: 1000px;
     padding: 0 1rem;
 }
 .projeto-card {
+    
     color: var(--text-color4);
     background-color: var(--background-color4);
     border-radius: 12px;
     box-shadow: 0 2px 12px rgba(0,0,0,0.08);
-    padding: 1.5rem 1rem;
+    padding: 1.3rem 1rem;
     text-align: center;
     transition: transform 0.2s;
     display: flex;
@@ -244,6 +251,8 @@ header {
     filter: blur(0);
 }
 .projeto-card h2 {
+    white-space: nowrap;
+    text-align: center;
     margin: 0.5rem 0;
     font-size: 1.3rem;
 }
@@ -292,6 +301,7 @@ header {
     max-width: 70%;
 }
 .introduction { 
+    cursor: default;
     color: var(--text-color4);
     line-height: 2.3rem;
     margin: 12rem auto 0 auto;
@@ -305,6 +315,9 @@ header {
     margin: 0;
     max-width: 50%;
     text-align: left;
+}
+.introduction h2 {
+    font-weight: 400;
 }
 #darkmodeToggle:checked ~ .pagina .icones-sociais img {
     filter: brightness(0) invert(1);
@@ -392,19 +405,33 @@ header {
 }
 
 
-nav a::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: -3px;
-    height: 2px;
-    width: 0;
-    background-color: var(--text-color2);
-    transition: width 0.3s ease;
+nav a {
+  position: relative;
+  overflow: hidden; 
 }
 
+nav a::before,
+nav a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  height: 2px;
+  width: 0; 
+  background-color: var(--text-color2);
+  transition: width 0.3s ease;
+}
+
+nav a::before {
+  left: 50%;
+}
+
+nav a::after {
+  right: 50%;
+}
+
+nav a:hover::before,
 nav a:hover::after {
-    width: 100%;
+  width: 50%;
 }
 
 .header a:hover {
